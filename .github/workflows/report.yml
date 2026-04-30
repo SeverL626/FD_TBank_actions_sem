@@ -14,6 +14,15 @@ jobs:
       - name: Download repository files
         uses: actions/checkout@v4
 
+      - name: T1 Run
+        run: bash scripts/create-summary.sh
+
+      - name: T2 Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: T2 Upload Current
+          path: build/reports/seminar-summary.txt
+
       # TODO:
       # 1. Запусти bash-скрипт scripts/create-summary.sh
       # 2. Сохрани файл build/reports/seminar-summary.txt как artifact
